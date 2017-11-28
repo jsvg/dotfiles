@@ -54,6 +54,7 @@ brew cask visual-studio-code
 brew cask gitkraken
 brew cask install hermes
 brew cask install vlc
+brew cask install caffeine
 
 # Remove outdated versions from the cellar.
 brew cleanup
