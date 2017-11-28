@@ -2,7 +2,7 @@
 
 ### Get it
 
-`curl -#L https://github.com/mathiasbynens/dotfiles/tarball/master | tar -xzv`
+`curl -#L https://github.com/jsvg/dotfiles/tarball/master | tar -xzv`
 
 ### Upstream
 
