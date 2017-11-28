@@ -1,5 +1,9 @@
 # Dotfiles
 
+### Get it
+
+`curl -#L https://github.com/mathiasbynens/dotfiles/tarball/master | tar -xzv`
+
 ### Upstream
 
 * https://github.com/mathiasbynens/dotfiles
