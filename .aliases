@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+# Directory shortcuts
+alias ~='cd ~'
+alias repos='cd ~/Repositories'
+alias sand='cd ~/Sandbox'
+alias desk='cd ~/Desktop'
+alias dl='cd ~/Downloads'
+alias dls='cd ~/Downloads'
+
+# Command shortcuts
+alias ..='cd ../'                           # Go back 1 directory level
+alias ...='cd ../../'                       # Go back 2 directory levels
+alias ....='cd ../../../'                   # Go back 3 directory levels
+alias cp='cp -iv'                           # Preferred 'cp' implementation
+alias mv='mv -iv'                           # Preferred 'mv' implementation
+alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
+alias f='open -a Finder ./'                 # Opens current directory in MacOS Finder
+alias c='clear'                             # Clear terminal display
+alias which='type -all'                     # Find executables
+
+# always use color, even when piping (to awk,grep,etc)
+export CLICOLOR_FORCE=1
+
+# ls options: A = include hidden (but not . or ..), F = put `/` after folders, h = byte unit suffixes
+alias ll='gls -AFhl --color --group-directories-first'
+
+# Always enable colored `grep` output
+# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# Clean up LaunchServices to remove duplicates in the “Open With” menu
+alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Empty the Trash on all mounted volumes and the main HDD.
+# Also, clear Apple’s System Logs to improve shell startup speed.
+# Finally, clear download history from quarantine. https://mths.be/bum
+alias emptytrash="\
+	sudo rm -rfv /Volumes/*/.Trashes;\
+	sudo rm -rfv ~/.Trash;\
+	sudo rm -v /private/var/vm/sleepimage; \
+	sudo rm -rfv /private/var/log/asl/*.asl;\
+	sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
+
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
