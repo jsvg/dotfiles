@@ -50,8 +50,8 @@ brew install python3
 brew cask install iterm2
 brew cask install firefox
 brew cask install spotify
-brew cask visual-studio-code
-brew cask gitkraken
+brew cask install visual-studio-code
+brew cask install gitkraken
 brew cask install hermes
 brew cask install vlc
 brew cask install caffeine
